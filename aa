@@ -1,7 +1,6 @@
 local charactersFolder = workspace:FindFirstChild("Characters")
 local myInventory = charactersFolder:FindFirstChild("Wawaa77777")
 
--- Update the GasDrain value
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local gasDrain = ReplicatedStorage:FindFirstChild("ODMGStats") and ReplicatedStorage.ODMGStats:FindFirstChild("GasDrain")
 
@@ -12,7 +11,7 @@ else
     warn("GasDrain not found in ReplicatedStorage.ODMGStats")
 end
 
--- Update the UpgradeRange attribute
+
 local data = myInventory and myInventory:FindFirstChild("Data")
 
 if data then
