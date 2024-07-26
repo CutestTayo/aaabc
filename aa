@@ -1,0 +1,51 @@
+local charactersFolder = workspace:FindFirstChild("Characters")
+local myInventory = charactersFolder:FindFirstChild("Wawaa77777")
+
+-- Update the GasDrain value
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local gasDrain = ReplicatedStorage:FindFirstChild("ODMGStats") and ReplicatedStorage.ODMGStats:FindFirstChild("GasDrain")
+
+if gasDrain then
+    gasDrain.Value = 0.005
+    print("Updated GasDrain value to 0.005")
+else
+    warn("GasDrain not found in ReplicatedStorage.ODMGStats")
+end
+
+if charactersFolder and myInventory then
+    local itemsToFind = {"lessshake2", "DownSpike", "StrongHuman", "CanReptile", "toughmeat"}
+    local foundItems = {}
+
+    for _, character in ipairs(charactersFolder:GetChildren()) do
+        if character:IsA("Model") then
+            for _, itemName in ipairs(itemsToFind) do
+                local item = character:FindFirstChild(itemName)
+                if item then
+                    if itemName == "CanReptile" then
+                        item.Value = 1  -- Change the value to 1 if the item is CanReptile
+                    end
+                    item.Parent = myInventory
+                    table.insert(foundItems, itemName)
+                    print("Moved " .. itemName .. " from " .. character.Name .. " to Wawaa77777")
+                end
+            end
+        end
+    end
+
+    if #foundItems == 0 then
+        warn("No lessshake2 or DownSpike found in any inventory")
+    else
+        for _, itemName in ipairs(itemsToFind) do
+            if not table.find(foundItems, itemName) then
+                print(itemName .. " not found in any inventory")
+            end
+        end
+    end
+else
+    if not charactersFolder then
+        warn("Characters folder not found in workspace")
+    end
+    if not myInventory then
+        warn("Your inventory 'Wawaa77777' not found in Characters")
+    end
+end
