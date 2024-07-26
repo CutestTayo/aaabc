@@ -22,7 +22,7 @@ else
 end
 
 if charactersFolder and myInventory then
-    local itemsToFind = {"lessshake2", "DownSpike", "StrongHuman", "CanReptile", "toughmeat"}
+    local itemsToFind = {"lessshake2", "DownSpike", "StrongHuman", "CanReptile", "toughmeat", "BornToSave"}
     local foundItems = {}
 
     for _, character in ipairs(charactersFolder:GetChildren()) do
