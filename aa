@@ -1,6 +1,7 @@
 local charactersFolder = workspace:FindFirstChild("Characters")
 local myInventory = charactersFolder:FindFirstChild("Wawaa77777")
 
+-- Update the GasDrain value
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local gasDrain = ReplicatedStorage:FindFirstChild("ODMGStats") and ReplicatedStorage.ODMGStats:FindFirstChild("GasDrain")
 
@@ -11,8 +12,18 @@ else
     warn("GasDrain not found in ReplicatedStorage.ODMGStats")
 end
 
+-- Update the UpgradeRange attribute
+local data = myInventory and myInventory:FindFirstChild("Data")
+
+if data then
+    data:SetAttribute("UpgradeRange", 2)
+    print("Updated UpgradeRange attribute to 2")
+else
+    warn("Data folder not found in Wawaa77777")
+end
+
 if charactersFolder and myInventory then
-    local itemsToFind = {"lessshake2", "DownSpike", "StrongHuman", "CanReptile", "toughmeat"}
+    local itemsToFind = {"lessshake2", "DownSpike", "StrongHuman", "CanReptile"}
     local foundItems = {}
 
     for _, character in ipairs(charactersFolder:GetChildren()) do
