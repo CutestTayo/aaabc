@@ -1,17 +1,18 @@
 local charactersFolder = workspace:FindFirstChild("Characters")
 local myInventory = charactersFolder:FindFirstChild("Wawaa77777")
 
+-- Update the GasDrain value
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local gasDrain = ReplicatedStorage:FindFirstChild("ODMGStats") and ReplicatedStorage.ODMGStats:FindFirstChild("GasDrain")
 
 if gasDrain then
-    gasDrain.Value = 0.003
-    print("Updated GasDrain value to 0.003")
+    gasDrain.Value = 0.005
+    print("Updated GasDrain value to 0.005")
 else
     warn("GasDrain not found in ReplicatedStorage.ODMGStats")
 end
 
-
+-- Update the UpgradeRange attribute
 local data = myInventory and myInventory:FindFirstChild("Data")
 
 if data then
@@ -21,8 +22,21 @@ else
     warn("Data folder not found in Wawaa77777")
 end
 
+-- Turn off visibility of RightBlind
+local players = game:GetService("Players")
+local localPlayer = players.LocalPlayer
+local hud = localPlayer:FindFirstChild("PlayerGui"):FindFirstChild("HUD")
+local rightBlind = hud and hud:FindFirstChild("RightBlind")
+
+if rightBlind then
+    rightBlind.Visible = false
+    print("Set RightBlind visibility to false")
+else
+    warn("RightBlind not found in HUD")
+end
+
 if charactersFolder and myInventory then
-    local itemsToFind = {"lessshake2", "DownSpike", "StrongHuman", "CanReptile", "toughmeat", "BornToSave"}
+    local itemsToFind = {"lessshake2", "DownSpike", "StrongHuman", "CanReptile"}
     local foundItems = {}
 
     for _, character in ipairs(charactersFolder:GetChildren()) do
