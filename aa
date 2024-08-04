@@ -5,8 +5,8 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local gasDrain = ReplicatedStorage:FindFirstChild("ODMGStats") and ReplicatedStorage.ODMGStats:FindFirstChild("GasDrain")
 
 if gasDrain then
-    gasDrain.Value = 0.005
-    print("Updated GasDrain value to 0.005")
+    gasDrain.Value = 0.003
+    print("Updated GasDrain value to 0.003")
 else
     warn("GasDrain not found in ReplicatedStorage.ODMGStats")
 end
