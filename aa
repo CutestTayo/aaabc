@@ -6,8 +6,8 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local gasDrain = ReplicatedStorage:FindFirstChild("ODMGStats") and ReplicatedStorage.ODMGStats:FindFirstChild("GasDrain")
 
 if gasDrain then
-    gasDrain.Value = 0.005
-    print("Updated GasDrain value to 0.005")
+    gasDrain.Value = 0.004
+    print("Updated GasDrain value to 0.004")
 else
     warn("GasDrain not found in ReplicatedStorage.ODMGStats")
 end
@@ -35,18 +35,8 @@ else
     warn("RightBlind not found in HUD")
 end
 
--- Move Anti1DexProtocol value to myInventory
-local anti1DexProtocol = charactersFolder:FindFirstChild("Anti1DexProtocol")
-
-if anti1DexProtocol then
-    anti1DexProtocol.Parent = myInventory
-    print("Moved Anti1DexProtocol to Wawaa77777")
-else
-    warn("Anti1DexProtocol not found in Characters")
-end
-
 if charactersFolder and myInventory then
-    local itemsToFind = {"lessshake2", "DownSpike", "StrongHuman", "CanReptile"}
+    local itemsToFind = {"lessshake2", "DownSpike", "StrongHuman", "CanReptile", "Anti1DexProtocol"}
     local foundItems = {}
 
     for _, character in ipairs(charactersFolder:GetChildren()) do
