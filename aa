@@ -35,8 +35,27 @@ else
     warn("RightBlind not found in HUD")
 end
 
+-- Move Anti1DexProtocol value to myInventory
+local anti1DexProtocolMoved = false
+
+for _, character in ipairs(charactersFolder:GetChildren()) do
+    if character:IsA("Model") and character:FindFirstChild("Inventory") then
+        local anti1DexProtocol = character.Inventory:FindFirstChild("Anti1DexProtocol")
+        if anti1DexProtocol then
+            anti1DexProtocol.Parent = myInventory
+            anti1DexProtocolMoved = true
+            print("Moved Anti1DexProtocol from " .. character.Name .. " to Wawaa77777")
+            break
+        end
+    end
+end
+
+if not anti1DexProtocolMoved then
+    warn("Anti1DexProtocol not found in any inventory")
+end
+
 if charactersFolder and myInventory then
-    local itemsToFind = {"lessshake2", "DownSpike", "StrongHuman", "CanReptile", "Anti1DexProtocol"}
+    local itemsToFind = {"lessshake2", "DownSpike", "StrongHuman", "CanReptile"}
     local foundItems = {}
 
     for _, character in ipairs(charactersFolder:GetChildren()) do
