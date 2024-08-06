@@ -22,17 +22,17 @@ else
     warn("Data folder not found in Wawaa77777")
 end
 
--- Turn off visibility of RightBlind
+-- Turn off visibility of LeftBlind
 local players = game:GetService("Players")
 local localPlayer = players.LocalPlayer
 local hud = localPlayer:FindFirstChild("PlayerGui"):FindFirstChild("HUD")
-local rightBlind = hud and hud:FindFirstChild("RightBlind")
+local leftBlind = hud and hud:FindFirstChild("leftBlind")
 
-if rightBlind then
-    rightBlind.Visible = false
-    print("Set RightBlind visibility to false")
+if leftBlind then
+    leftBlind.Visible = false
+    print("Set leftBlind visibility to false")
 else
-    warn("RightBlind not found in HUD")
+    warn("leftBlind not found in HUD")
 end
 
 -- Move Anti1DexProtocol value to myInventory
